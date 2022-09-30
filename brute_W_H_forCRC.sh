@@ -140,7 +140,7 @@ if [[ "$maxheight" != +([[:digit:]]) || "$minheight" != +([[:digit:]]) || "$minw
 	echo "-d	--debug			: print all usefull variables"	
    exit 2
 fi
-if [[ "$maxheight" < "$minheight" || "$maxwidth" < "$minwidth" ]] ; then
+if [[ "$maxheight" -lt "$minheight" || "$maxwidth" -lt "$minwidth" ]] ; then
 	echo "Moukrènes à la glaviouse"
 	echo "maxheight < minheight or maxwidth < minwidth"
 	echo "max height	: $maxheight"
