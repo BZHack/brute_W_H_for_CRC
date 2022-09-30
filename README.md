@@ -13,3 +13,9 @@ ce script va brute force la largueur et la hauteur pour correspondre au CRC dans
 	-wh	--width-height	: bruteforce the width and the height. SLOW
 	-a	--all			: bruteforce the width then the height then the width and the height. VERY SLOW
 	-d	--debug			: print all usefull variables
+
+il y a un ficher démo pour vos tests : corupted.png
+
+le résultat doit etre la meme image que : Noobosaurus_R3x.png
+
+Merci a https://twitter.com/noobosaurusr3x pour son autorisation.
