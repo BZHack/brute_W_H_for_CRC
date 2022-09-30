@@ -22,6 +22,21 @@
 #Interlace method:   1 byte  - 0x00
 #
 #${chaine:position:longueur}
+if [[ -z "$1" ]] ; then 
+		echo "run  brute_W_H_forCRC.sh <option> file.png"
+		echo "options :"
+		echo "-h	--min-height 	: set the min value for height | default value : 1"
+		echo "-w	--min-width	: set the min value for width | default value : 1"
+		echo "-H	--max-height 	: set the max value for height | default value : 666"
+		echo "-W	--max-width	: set the max value for width | default value : 666"
+		echo "#work type [default all] :"
+		echo "-oh	--only-height	: bruteforce only the height"
+		echo "-ow	--only-width	: bruteforce only the width"
+		echo "-wh	--width-height	: bruteforce the width and the height. SLOW"
+		echo "-a	--all		: bruteforce the width then the height then the width and the height. VERY SLOW"
+		echo "-d	--debug		: print all usefull variables"
+		exit 0
+fi
 while [[ -n "$1" ]]
 	do
 	case $1 in 
@@ -149,7 +164,10 @@ if [[ "$maxheight" -lt "$minheight" || "$maxwidth" -lt "$minwidth" ]] ; then
 	echo "min width	: $minwidth"
 	exit 2
 fi
-
+if [[ -z "$fichier" ]] ; then
+	echo "Moukrènes à la glaviouse"
+	exit 2
+fi
 ## définition des variables :
 fichier_hexa=$(xxd -p ${fichier} | tr -d "\n")
 IHDR=$(echo ${fichier_hexa} | head -2  | tr -d "\n" | sed -E 's/89504e470d0a1a0a.{8}(.{42}).*/\1/')
